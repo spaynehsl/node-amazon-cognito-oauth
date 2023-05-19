@@ -76,7 +76,7 @@ app.get("/users/:id", (req, res) => {
     res.redirect("/");
   } else {
     let { id } = req.query;
-    let { accessToken, email, emailVefired } = req.session.user;
+    let { accessToken, email, emailVerified } = req.session.user;
     getLogout()
       .then((url) => {
         res.status(200).send({
@@ -84,7 +84,7 @@ app.get("/users/:id", (req, res) => {
           id,
           accessToken,
           email,
-          emailVefired,
+          emailVerified,
           logout: url,
         });
       })
